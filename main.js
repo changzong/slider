@@ -25,38 +25,38 @@ function DisplayImages()
 {
     $("#" + id).fadeTo(1000, 1);
     
-    $("#leftButton").click(function(){
-        clearTimeout(timer);
-        $("#sliderContainer img").each(function(i)
-        {
-            $(this).fadeTo(0, 0);
-        })
-        if (i == 0)
-            i = imagenum - 1;
-        else
-            i--; 
-        id = "pic" + i;
-        //$("#" + id).fadeTo(0, 1);
-        console.log(id);
-        SlidingUpLeft();
-        ImagesLoop();
-    });
-    
-    $("#rightButton").click(function(){
-        clearTimeout(timer);
-        $("#sliderContainer img").each(function(i)
-        {
-            $(this).fadeTo(0, 0);
-        })
-        if (i == imagenum - 1)
-            i = 0;
-        else
-            i++;
-        id = "pic" + i;
-        //$("#" + id).fadeTo(0, 1);
-        SlidingUpRight();
-        ImagesLoop();    
-    });    
+        $("#leftButton").click(function(){
+            clearTimeout(timer);
+            $("#sliderContainer img").each(function(i)
+            {
+                $(this).fadeTo(0, 0);
+            })
+            if (i == 0)
+                i = imagenum - 1;
+            else
+                i--; 
+            id = "pic" + i;
+            //$("#" + id).fadeTo(0, 1);
+            SlidingUpLeft();
+            ImagesLoop();
+        });
+        
+        $("#rightButton").click(function(){
+            clearTimeout(timer);
+            $("#sliderContainer img").each(function(i)
+            {
+                $(this).fadeTo(0, 0);
+            })
+            if (i == imagenum - 1)
+                i = 0;
+            else
+                i++;
+            id = "pic" + i;
+            //$("#" + id).fadeTo(0, 1);
+            console.log(id);
+            SlidingUpRight();
+            ImagesLoop();    
+        }); 
 
     ImagesLoop();
 }
@@ -70,6 +70,8 @@ function ImagesLoop()
         else
             i++;
         id = "pic" + i;
+        $("#leftButton").off("click");
+        $("#rightButton").off("click");
         DisplayImages();
     }, 5000);
 }
