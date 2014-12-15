@@ -1,0 +1,83 @@
+body {
+	margin: 0;
+	padding: 0;
+	background: #000;
+	font-family: "Georgia", serif;
+}
+
+#sliderContainer {
+	width: 100%;
+	min-width: 600px;
+	height: 100%;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin-top: auto;
+	margin-bottom: auto;
+	text-align: center;
+	z-index: 1;
+}
+
+#sliderContainer img {
+	display: block;
+	max-width: 100%;
+	min-width: 800px;
+	height: auto;
+	width: auto;
+	position: absolute;
+	opacity: 0;
+	-webkit-box-reflect:
+		below
+		0
+		-webkit-gradient(
+			linear,
+			left top,
+			left bottom,
+			color-stop(1, rgba(255, 255, 255, .5)),
+			color-stop(.8, rgba(255, 255, 255, 0))
+		);
+}
+
+#leftButton, #rightButton {
+	background-color: transparent;
+	position: absolute;
+	z-index: 2;
+	top: -100px;
+	bottom: 0;
+	padding: 0;
+	margin: auto 0;
+	width: 15%;
+	height: 600px;
+	border: none;
+	outline: none;
+	color: #fff;
+	font-size: 100px;
+	opacity: 0;
+}
+
+#leftButton:hover, #rightButton:hover {
+	opacity: .5;
+	outline: none;
+}
+
+#leftButton {
+	left: 0;
+}
+
+#rightButton {
+	right: 0;
+}
+
+#caption {
+	position: absolute;
+	z-index: 2;
+	bottom: 90px;
+	width: 100%;
+	color: #ffc;
+	text-align: center;
+	font-family: "Georgia", serif;
+	font-size: 24px;
+	letter-spacing: .1em;
+	display: none;
+}
