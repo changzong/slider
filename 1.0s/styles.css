@@ -22,7 +22,7 @@ body {
 .sliderContainer img {
 	display: block;
 	max-width: 100%;
-	min-width: 800px;
+	min-width: 600px;
 	height: auto;
 	width: auto;
 	position: absolute;
