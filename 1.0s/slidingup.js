@@ -9,14 +9,29 @@ var main_page_pattern = /mainPage/;
 var main_sub_pattren = /mainSub[0-9]/;
 var head_page_pattern = /headPage[0-9]/;
 var head_sub_pattern = /head[0-9]Sub[0-9]/;
+var num_row = 3;
+var img_cum_height = 0;
+var img_cum_width = 0;
 
 function initialize()
 {   
     $(".sliderContainer img").each(function(i)
     {
-        console.log(i);
+        
         if (main_page_pattern.test($(this).attr("id")) || main_sub_pattren.test($(this).attr("id")) || head_page_pattern.test($(this).attr("id")) || head_sub_pattern.test($(this).attr("id")))
             console.log("Got it!");
+        if (main_page_pattern.test($(this).attr("id")))
+        {
+            $(this).css({"left": "0px", "top": "0px"});
+        }
+        else if (main_sub_pattren.test($(this).attr("id")))
+        {
+            $(this).load(function(){
+                img_cum_height += $(this).height();
+                console.log(img_cum_height);
+            });
+            $(this).css({"left": "0px", "top": img_cum_height + "px"});
+        }
     });
     
     headRowArray.push(".mainPage");
